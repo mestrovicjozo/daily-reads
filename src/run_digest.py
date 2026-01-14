@@ -13,6 +13,10 @@ import sys
 import feedparser
 from dotenv import load_dotenv
 
+# Load environment variables from .env file in the project root
+_project_root = Path(__file__).parent.parent
+load_dotenv(_project_root / ".env")
+
 from . import feeds
 from . import state_store
 from . import extract
@@ -20,9 +24,6 @@ from . import scoring
 from . import gemini_summarize
 from . import render
 from . import utils
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Configure logging
 logging.basicConfig(
